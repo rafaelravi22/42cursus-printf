@@ -6,13 +6,13 @@
 /*   By: rafamart <rafamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:22:29 by rafamart          #+#    #+#             */
-/*   Updated: 2023/05/16 18:27:39 by rafamart         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:28:10 by rafamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print(const char *intake, ...)
+int	ft_printf(const char *intake, ...)
 {
 	int		i;
 	int		t;
@@ -36,7 +36,7 @@ int	ft_print(const char *intake, ...)
 	return (t);
 }
 
-int	ft_conversion(const char c, va_list a)
+int	ft_conversion(char c, va_list a)
 {
 	int	t;
 
@@ -47,8 +47,10 @@ int	ft_conversion(const char c, va_list a)
 		t = (ft_putstr(va_arg(a, char *)));
 	else if (c == 'd' || c == 'i')
 		t = (ft_putnbr(va_arg(a, int)));
-	else if (c == 'X' || c == 'x' || c == 'p')
+	else if (c == 'X' || c == 'x')
 		t = (ft_hex(va_arg(a, unsigned long int), c));
+	else if (c == 'p')
+		t = (ft_putp(va_arg(a, unsigned long int), c));
 	else if (c == 'u')
 		t = (ft_unsgdint(va_arg(a, unsigned int)));
 	else if (c == '%')

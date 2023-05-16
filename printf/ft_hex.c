@@ -6,7 +6,7 @@
 /*   By: rafamart <rafamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 19:13:30 by rafamart          #+#    #+#             */
-/*   Updated: 2023/05/16 17:54:22 by rafamart         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:39:21 by rafamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int	ft_hex(unsigned long int n, int c)
 		t += ft_hex(n % 16, c);
 	}
 	else
-		t += ft_putchar(hextype[n]);
+		t += ft_putchar(hextype[(unsigned long int)n]);
 	return (t);
 }

@@ -6,7 +6,7 @@
 /*   By: rafamart <rafamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:24:24 by rafamart          #+#    #+#             */
-/*   Updated: 2023/05/16 18:14:44 by rafamart         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:02:48 by rafamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ int	ft_putstr(char *s)
 	t = 0;
 	if (!s)
 		return (ft_putstr("(null)"));
-	while (s)
+	else
 	{
-		t += (putchar(s[i]));
-		i++;
-	}
+		while (s[i])
+		{
+			t += write(1, &s[i], 1);
+			i++;
+		}
+	}	
 	return (t);
 }

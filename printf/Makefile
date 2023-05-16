@@ -3,7 +3,8 @@ ft_hex.c \
 ft_putchar.c \
 ft_putnbr.c \
 ft_putstr.c \
-ft_unsgdint.c 
+ft_unsgdint.c \
+ft_putp.c
 
 OBJECTS	= $(SOURCEFILES:.c=.o)
 

@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafamart <rafamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 18:23:51 by rafamart          #+#    #+#             */
-/*   Updated: 2023/05/16 19:25:54 by rafamart         ###   ########.fr       */
+/*   Created: 2023/05/16 19:11:40 by rafamart          #+#    #+#             */
+/*   Updated: 2023/05/16 19:18:51 by rafamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_putp(unsigned long int n, int c)
 {
-	return (write(1, &c, 1));
+	int	t;
+
+	t = 0;
+	if (!n)
+		t += ft_putstr("(nil)");
+	else
+	{
+		t += ft_putstr("0x");
+		t += ft_hex(n, c);
+	}
+	return (t);
 }
